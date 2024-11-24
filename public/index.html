@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+</head>
+<body>
+    <h1>Bienvenido al Sitio de Libros</h1>
+    <nav>
+       <a href="autores.html">Autores</a>
+    </nav>
+    <h2>Lista de Libros</h2>
+    <ul id="libros-lista"></ul>
+
+    <script>
+        async function fetchLibros() {
+            try {
+                const response = await fetch('/api/libros');
+                const libros = await response.json();
+                const librosLista = document.getElementById('libros-lista');
+
+                libros.forEach(libro => {
+                    const li = document.createElement('li');
+                    li.textContent = `${libro.titulo} - ${libro.autor.nombre} ${libro.autor.apellido}`;
+                    librosLista.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Error al obtener libros:', error);
+            }
+        }
+
+        fetchLibros();
+    </script>
+</body>
+</html>
