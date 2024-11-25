@@ -79,3 +79,4 @@ app.get('/api/autores', async (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor funcionando en http://localhost:${port}`);
 });
+module.exports = app;

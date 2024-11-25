@@ -1,0 +1,12 @@
+version: '3'
+services:
+  api:
+    image: razmi/api
+    ports:
+      - "3000:3000"
+  db:
+    image: razmi/db
+    ports:
+        - "27017:27017"
+     
+  
