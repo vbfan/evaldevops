@@ -1,12 +1,12 @@
 const express = require('express');
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose'); */
 const { Libro, Autor } = require('./models/libros');
 
 const app = express();
 const path = require('path');
 const port = 3000;
 
-mongoose.connect('mongodb://localhost:27017/libros', {
+/* mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/libros', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -34,7 +34,7 @@ async function initializeData() {
     }
 }
 
-initializeData();
+initializeData(); */
 
 app.use(express.static(path.join(__dirname, 'public')));
 
